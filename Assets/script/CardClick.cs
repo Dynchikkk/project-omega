@@ -5,9 +5,11 @@ using UnityEngine;
 public class CardClick : MonoBehaviour
 {
     private Character pl;
+    private MainScr mainScript;
 
     public void OnClick(int num)
     {
+        mainScript = Camera.main.GetComponent<MainScr>();
         Object[] allUnit = FindObjectsOfType<Character>();
         for (int i = 0; i < allUnit.Length; i++)
         {
@@ -17,11 +19,13 @@ public class CardClick : MonoBehaviour
                 break;
             }
         }
-        print(pl.currentCards.Count);
-        print(num);
 
         Instantiate(pl.currentCards[num], pl.gameObject.transform);
         pl.passedCards.Add(pl.currentCards[num]);
         pl.currentCards[num] = null;
+
+        pl.target.GetComponent<Character>().CharscteristicTxt();
+
+        mainScript.ReupdateCardsText();
     }
 }

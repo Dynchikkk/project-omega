@@ -43,36 +43,41 @@ public class Character : MonoBehaviour
             selfCards.RemoveAt(0);
         }
 
-        findTarget();
+        FindTarget();
+
+        mainScript.ReupdateCardsText();
+        if (team == 1) CharscteristicTxt();
     }
 
-    public void enemyAction()
+    public void EnemyAction()
     {
         if(nextStep == 1)
         {
-            enAttack();
+            EnAttack();
             print(name + nextStep.ToString());
         }
         if (nextStep == 0)
         {
-            enGetArmor();
+            EnGetArmor();
             print(name + nextStep.ToString());
         }
     }
 
-    public void enAttack()
+    public void EnAttack()
     {
         target.GetComponent<Character>().currentHp -= damage;
         nextStep = Random.Range(0, 2);
+        CharscteristicTxt();
     }
 
-    public void enGetArmor()
+    public void EnGetArmor()
     {
         currentHp += armor;
         nextStep = Random.Range(0, 2);
+        CharscteristicTxt();
     }
 
-    public void findTarget()
+    public void FindTarget()
     {
         Object[] allUnit = FindObjectsOfType<Character>();
         for (int i = 0; i < allUnit.Length; i++)
@@ -83,5 +88,15 @@ public class Character : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void CharscteristicTxt()
+    {
+        mainScript.playerHpTxt.text = "Hp: " + target.GetComponent<Character>().currentHp.ToString();
+        mainScript.EnemyHpAndNextStep.text = "Hp: " + currentHp.ToString();
+        if (nextStep == 1)
+            mainScript.EnemyHpAndNextStep.text += " NextStep: Attack " + damage.ToString(); 
+        else
+            mainScript.EnemyHpAndNextStep.text += " NextStep: GetArmor " + armor.ToString();
     }
 }

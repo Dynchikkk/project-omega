@@ -7,7 +7,7 @@ public class EndStep : MonoBehaviour
     private Character pl;
     private MainScr mainScript;
 
-    public void endStep()
+    public void EndTheStep()
     {
         Object[] allEnemy = FindObjectsOfType<Character>();
         for (int i = 0; i < allEnemy.Length; i++)
@@ -53,12 +53,15 @@ public class EndStep : MonoBehaviour
         {
             if (((Character)enTeam[i]).team == 1)
             {
-                ((Character)enTeam[i]).enemyAction();
+                ((Character)enTeam[i]).EnemyAction();
             }
         }
+
+        mainScript.ReupdateCardsText();
+        pl.target.GetComponent<Character>().CharscteristicTxt();
     }
 
-    public void findPlayer()
+    public void FindPlayer()
     {
         Object[] allUnit = FindObjectsOfType<Character>();
         for (int i = 0; i < allUnit.Length; i++)

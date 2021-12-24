@@ -10,7 +10,7 @@ public class SmallArmorCard : MonoBehaviour
     private Character pl;
     void Start()
     {
-        findPlayer();
+        FindPlayer();
 
         if (Camera.main.GetComponent<MainScr>().Stamina - stm >= 0)
         {
@@ -24,10 +24,12 @@ public class SmallArmorCard : MonoBehaviour
 
     public void AfterUse()
     {
+        FindObjectOfType<MainScr>().ReupdateCardsText();
+        pl.target.GetComponent<Character>().CharscteristicTxt();
         Destroy(gameObject);
     }
 
-    public void findPlayer()
+    public void FindPlayer()
     {
         Object[] allUnit = FindObjectsOfType<Character>();
         for (int i = 0; i < allUnit.Length; i++)
