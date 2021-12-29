@@ -7,6 +7,9 @@ public class BigArmorCard : MonoBehaviour
     public int armor = 10;
     public int stm = 2;
 
+    // 0 - attack, 1 - armor
+    public int typeOfCard = 0;
+
     private Character pl;
     void Start()
     {

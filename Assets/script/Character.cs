@@ -25,7 +25,7 @@ public class Character : MonoBehaviour
     private MainScr mainScript;
 
     // 0 - Armor, 1 - Attack
-    private int nextStep = 1;
+    public int nextStep = 1;
 
     private void Start()
     {
@@ -43,9 +43,10 @@ public class Character : MonoBehaviour
             selfCards.RemoveAt(0);
         }
 
-        FindTarget();
+        if(team == 1) FindTarget();
 
         mainScript.ReupdateCardsText();
+
         if (team == 1) CharscteristicTxt();
     }
 
@@ -56,7 +57,7 @@ public class Character : MonoBehaviour
             EnAttack();
             print(name + nextStep.ToString());
         }
-        if (nextStep == 0)
+        else if (nextStep == 0)
         {
             EnGetArmor();
             print(name + nextStep.ToString());

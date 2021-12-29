@@ -98,7 +98,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
-    <Compile Include="Assets\script\CardClick.cs" />
+    <Compile Include="Assets\script\CardClickScripts\CardClick.cs" />
+    <Compile Include="Assets\script\CardClickScripts\ChrBut.cs" />
     <Compile Include="Assets\script\CardsScripts\BigArmorCard.cs" />
     <Compile Include="Assets\script\CardsScripts\BigAttackCard.cs" />
     <Compile Include="Assets\script\CardsScripts\SmallArmorCard.cs" />

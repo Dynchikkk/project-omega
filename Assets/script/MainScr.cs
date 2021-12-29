@@ -28,7 +28,7 @@ public class MainScr : MonoBehaviour
     public TextMeshProUGUI passedCardsTxt;
     public TextMeshProUGUI inGameCardsTxt;
 
-    private void Start()
+    private void Awake()
     {
         playerLink = Instantiate(player, plParent.transform);
         Instantiate(enemyList[Random.Range(0, enemyList.Count)], enParent.transform);
