@@ -93,11 +93,16 @@ public class Character : MonoBehaviour
 
     public void CharscteristicTxt()
     {
+        var a = GameObject.Find("Button&TextParentEnemy");
+        for (int i = 0; i < mainScript.enParent.transform.childCount; i++)
+        {
+            a.GetComponent<InstantiateEnButAndTxt>().allTxtLinks[i].text = "Hp: " + mainScript.enParent.transform.GetChild(i).GetComponent<Character>().currentHp.ToString();
+            if (nextStep == 1)
+                a.GetComponent<InstantiateEnButAndTxt>().allTxtLinks[i].text += " NextStep: Attack " + mainScript.enParent.transform.GetChild(i).GetComponent<Character>().damage.ToString();
+            else
+                a.GetComponent<InstantiateEnButAndTxt>().allTxtLinks[i].text += " NextStep: GetArmor " + mainScript.enParent.transform.GetChild(i).GetComponent<Character>().armor.ToString();
+
+        }
         mainScript.playerHpTxt.text = "Hp: " + target.GetComponent<Character>().currentHp.ToString();
-        mainScript.EnemyHpAndNextStep.text = "Hp: " + currentHp.ToString();
-        if (nextStep == 1)
-            mainScript.EnemyHpAndNextStep.text += " NextStep: Attack " + damage.ToString(); 
-        else
-            mainScript.EnemyHpAndNextStep.text += " NextStep: GetArmor " + armor.ToString();
     }
 }

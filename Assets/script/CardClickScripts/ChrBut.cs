@@ -10,7 +10,7 @@ public class ChrBut : MonoBehaviour
 
     public GameObject privateEnemy = null;
 
-    [SerializeField] private int numEn = 0;
+    public int numEn = 0;
 
     private void Start()
     {
@@ -23,9 +23,16 @@ public class ChrBut : MonoBehaviour
                 pl = (Character)allUnit[i];
                 break;
             }
-        }
+        } 
 
-        privateEnemy = mainScript.enParent.transform.GetChild(numEn).gameObject;
+        if(numEn == -1)
+        {
+            privateEnemy = mainScript.plParent.transform.GetChild(0).gameObject;
+        }
+        else
+        {
+            privateEnemy = mainScript.enParent.transform.GetChild(numEn).gameObject;
+        }
 
         gameObject.GetComponent<Button>().enabled = false;
     }

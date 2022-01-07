@@ -106,6 +106,7 @@
     <Compile Include="Assets\script\CardsScripts\SmallAttackCard.cs" />
     <Compile Include="Assets\script\Character.cs" />
     <Compile Include="Assets\script\EndStep.cs" />
+    <Compile Include="Assets\script\InstantiateEnButAndTxt.cs" />
     <Compile Include="Assets\script\MainScr.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

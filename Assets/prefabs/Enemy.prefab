@@ -134,3 +134,4 @@ MonoBehaviour:
   currentCards: []
   passedCards: []
   target: {fileID: 0}
+  nextStep: 1
